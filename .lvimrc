@@ -1,0 +1,2 @@
+set makeprg=./build.sh
+nnoremap <Leader>kj :! ./build/pthread_from_main_test<CR>
