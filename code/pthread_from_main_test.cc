@@ -41,11 +41,12 @@ static dispatch_semaphore_t SemaphoreHandle;
 
 // __thread int TLSValue;
 // __thread int Counter;
-__thread int IndexForThread;
+static __thread int IndexForThread;
 
 // NOTE: (KAPSY) Interesting to note that the performance gap is non existant
-// when using 4 threads.
-#define MAX_THREADS 8
+// when using 4 threads, and the TLS version has better performance when the
+// thread count increases.
+#define MAX_THREADS 12
 #define START_COUNT (1 << 24)
 // NOTE: (KAPSY) Try setting the stride less than 5
 // (32*4 bytes = 128 byte cache line) and watch the cycle count jump!
